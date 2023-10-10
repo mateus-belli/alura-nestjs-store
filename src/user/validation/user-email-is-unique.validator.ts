@@ -10,7 +10,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 @ValidatorConstraint({ async: true })
-export class EmailIsUniqueValidator implements ValidatorConstraintInterface {
+export class UserEmailIsUniqueValidator
+  implements ValidatorConstraintInterface
+{
   constructor(private userRepository: UserRepository) {}
 
   async validate(value: string): Promise<boolean> {
@@ -24,14 +26,14 @@ export class EmailIsUniqueValidator implements ValidatorConstraintInterface {
   }
 }
 
-export const EmailIsUnique = (validationOptions?: ValidationOptions) => {
+export const UserEmailIsUnique = (validationOptions?: ValidationOptions) => {
   return (object: unknown, propertyName: string) => {
     registerDecorator({
       target: object.constructor,
       propertyName,
       options: validationOptions,
       constraints: [],
-      validator: EmailIsUniqueValidator,
+      validator: UserEmailIsUniqueValidator,
     });
   };
 };

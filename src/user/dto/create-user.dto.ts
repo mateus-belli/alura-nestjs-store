@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
-import { EmailIsUnique } from '../validation/email-is-unique.validator';
+import { UserEmailIsUnique } from '../validation/user-email-is-unique.validator';
 
 export class CreateUserDto {
   @IsString()
@@ -7,7 +7,7 @@ export class CreateUserDto {
   name: string;
 
   @IsEmail()
-  @EmailIsUnique()
+  @UserEmailIsUnique()
   email: string;
 
   @MinLength(6)

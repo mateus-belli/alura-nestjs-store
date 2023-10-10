@@ -7,13 +7,20 @@ import {
   IsNumber,
   IsPositive,
   IsString,
+  IsUUID,
   ValidateNested,
 } from 'class-validator';
 import { ProductCaracteristicDto } from './product-caracteristic.dto';
 import { Type } from 'class-transformer';
 import { ProductImageDto } from './product-image.dto';
+import { UserExists } from 'src/user/validation/user-exists.validator';
 
 export class CreateProductDto {
+  @IsDefined()
+  @IsUUID()
+  @UserExists()
+  userCreationId: string;
+
   @IsString()
   @IsDefined()
   name: string;
