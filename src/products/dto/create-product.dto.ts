@@ -48,8 +48,8 @@ export class CreateProductDto {
   @IsString()
   category: string;
 
-  // @IsDefined()
-  // @IsUUID()
-  // @UserExists()
-  // userCreationId: string;
+  @IsDefined()
+  @IsUUID()
+  @UserExists()
+  userCreationId: string;
 }
