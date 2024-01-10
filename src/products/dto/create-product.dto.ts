@@ -16,11 +16,6 @@ import { ProductImageDto } from './product-image.dto';
 import { UserExists } from 'src/user/validation/user-exists.validator';
 
 export class CreateProductDto {
-  @IsDefined()
-  @IsUUID()
-  @UserExists()
-  userCreationId: string;
-
   @IsString()
   @IsDefined()
   name: string;
@@ -52,4 +47,9 @@ export class CreateProductDto {
 
   @IsString()
   category: string;
+
+  // @IsDefined()
+  // @IsUUID()
+  // @UserExists()
+  // userCreationId: string;
 }
